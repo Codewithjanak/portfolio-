@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arrange My Thing - Official Game Site</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --wood-color: #d4a373;
+            --wood-dark: #b08d55;
+            --btn-blue: #5b9bd5;
+            --btn-blue-shadow: #3a7ab5;
+            --btn-red: #e74c3c;
+            --btn-red-shadow: #c0392b;
+            --text-stroke: 2px black;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Press Start 2P', cursive;
+            background-color: var(--wood-color);
+            /* Creating a wood floor pattern with CSS */
+            background-image: repeating-linear-gradient(
+                90deg,
+                var(--wood-color) 0px,
+                var(--wood-color) 48px,
+                var(--wood-dark) 49px,
+                var(--wood-dark) 50px
+            );
+            color: white;
+            text-align: center;
+        }
+
+        /* --- Header / Hero Section --- */
+        header {
+            padding: 50px 20px;
+            background: rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            font-size: 3rem;
+            color: white;
+            text-shadow: 4px 4px 0px #000;
+            margin-bottom: 10px;
+            line-height: 1.5;
+        }
+
+        p.subtitle {
+            font-size: 1.2rem;
+            color: #ffeb3b; /* Yellow like the trophy */
+            text-shadow: 2px 2px 0px #000;
+            margin-bottom: 40px;
+        }
+
+        /* --- The Floating Voxel Item Animation --- */
+        .voxel-showcase {
+            font-size: 100px;
+            margin: 20px auto;
+            animation: float 3s ease-in-out infinite;
+            cursor: pointer;
+            display: inline-block;
+            transition: transform 0.2s;
+        }
+
+        .voxel-showcase:hover {
+            transform: scale(1.2) rotate(10deg);
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+
+        /* --- 3D Buttons (Matching your screenshots) --- */
+        .btn-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .game-btn {
+            padding: 20px 40px;
+            font-family: 'Press Start 2P', cursive;
+            font-size: 1.2rem;
+            color: white;
+            text-decoration: none;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            position: relative;
+            width: 280px;
+            text-transform: uppercase;
+            text-shadow: 2px 2px 0 #000;
+            transition: top 0.1s;
+        }
+
+        .btn-blue {
+            background-color: var(--btn-blue);
+            box-shadow: 0px 8px 0px var(--btn-blue-shadow), 0px 8px 10px rgba(0,0,0,0.3);
+        }
+
+        .btn-blue:active {
+            top: 8px;
+            box-shadow: 0px 0px 0px var(--btn-blue-shadow);
+        }
+
+        .btn-red {
+            background-color: var(--btn-red);
+            box-shadow: 0px 8px 0px var(--btn-red-shadow), 0px 8px 10px rgba(0,0,0,0.3);
+        }
+
+        /* --- Screenshots Section --- */
+        .gallery {
+            padding: 50px 20px;
+            background-color: rgba(255,255,255,0.1);
+            margin-top: 50px;
+        }
+
+        .gallery h2 {
+            text-shadow: 3px 3px 0 #000;
+            margin-bottom: 40px;
+        }
+
+        .screenshot-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .screenshot-card {
+            width: 250px;
+            height: 400px;
+            background-color: #333;
+            border: 4px solid white;
+            border-radius: 10px;
+            box-shadow: 5px 5px 0px rgba(0,0,0,0.5);
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #aaa;
+            font-size: 0.8rem;
+        }
+
+        .screenshot-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* --- Features List --- */
+        .features {
+            padding: 50px 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .feature-item {
+            background: #fff;
+            color: #333;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            border: 4px solid #000;
+            box-shadow: 8px 8px 0px rgba(0,0,0,0.2);
+            text-align: left;
+        }
+
+        .feature-item h3 {
+            margin-top: 0;
+            color: var(--btn-blue);
+        }
+
+        /* --- Footer --- */
+        footer {
+            padding: 40px;
+            background-color: #333;
+            color: white;
+            font-size: 0.8rem;
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>ARRANGE<br>MY<br>THING</h1>
+        <p class="subtitle">Fit the pieces. Clear the level!</p>
+
+        <div class="voxel-showcase" onclick="changeEmoji(this)">
+            🍣
+        </div>
+        <p style="font-size: 0.7rem; margin-top:-10px; opacity: 0.8;">(Click the Sushi!)</p>
+
+        <div class="btn-container">
+            <button class="game-btn btn-blue">Download Now</button>
+            <button class="game-btn btn-blue">Watch Trailer</button>
+        </div>
+    </header>
+
+    <section class="features">
+        <div class="feature-item">
+            <h3>🧩 Brain Teasing Puzzles</h3>
+            <p>Drag, drop, and rotate! Fit the sushi, pizza, and cookies into the box perfectly. No space left behind!</p>
+        </div>
+        <div class="feature-item">
+            <h3>🏆 Collect Trophies</h3>
+            <p>Master levels to earn gold cups. Can you get 3 stars on every stage?</p>
+        </div>
+        <div class="feature-item">
+            <h3>🎨 Voxel Art Style</h3>
+            <p>Enjoy a colorful, blocky world full of delicious food items and satisfying animations.</p>
+        </div>
+    </section>
+
+    <section class="gallery">
+        <h2>Gameplay Gallery</h2>
+        <div class="screenshot-grid">
+            <div class="screenshot-card">
+                <span>[ Insert Screenshot 1 ]<br>Main Menu</span>
+            </div>
+            <div class="screenshot-card">
+                <span>[ Insert Screenshot 2 ]<br>Puzzle Gameplay</span>
+            </div>
+            <div class="screenshot-card">
+                <span>[ Insert Screenshot 3 ]<br>Level Complete</span>
+            </div>
+        </div>
+    </section>
+
+    <div class="btn-container" style="margin: 50px 0;">
+        <button class="game-btn btn-red">Join Beta</button>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Arrange My Thing. All Rights Reserved.</p>
+        <p>Made with ❤️ for Puzzle Lovers</p>
+    </footer>
+
+    <script>
+        // A simple script to make the main icon interactive
+        const emojis = ['🍣', '🍕', '🍪', '🌭', '🍱'];
+        let index = 0;
+
+        function changeEmoji(element) {
+            // Spin effect
+            element.style.transform = "scale(0.8) rotate(360deg)";
+            
+            setTimeout(() => {
+                index = (index + 1) % emojis.length;
+                element.innerText = emojis[index];
+                // Reset transform
+                element.style.transform = "scale(1) rotate(0deg)";
+            }, 200);
+        }
+    </script>
+</body>
+</html>
